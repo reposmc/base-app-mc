@@ -19,6 +19,13 @@
 
 //CSS Animations
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+@import "normalize";
+
+html,
+body {
+    padding: 0px !important;
+    margin: 0px !important;
+}
 
 // Museo Sans
 // @font-face {

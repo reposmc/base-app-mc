@@ -119,7 +119,8 @@
                                 <div class="col-6 col-md-6 text-right d-none d-md-block d-lg-block d-xl-block">
                                     <div class="row mt-3 mb-1">
                                         <div class=" col-md-12 text-end">
-                                            <a href="{{ url('/login') }}" class="btn btn-normal-nav shadow-none">Iniciar sesión</a>
+                                            <a href="{{ url('/login') }}" class="btn btn-normal-nav shadow-none">Iniciar
+                                                sesión</a>
                                             <a href="{{ route('register') }}"
                                                 class="btn btn-normal-secondary-nav shadow-none">Registrarme</a>
                                         </div>
