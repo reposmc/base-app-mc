@@ -21,11 +21,11 @@
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="row">
                             {{-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label> --}}
 
                             <div class="col-md-10 offset-md-1">
-                                <input placeholder="Correo electrónico" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input placeholder="Correo electrónico" id="email" type="email" class="shadow-none form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -37,7 +37,7 @@
 
                         <div class="row mb-3">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-normal">
+                                <button type="submit" class="btn btn-normal shadow-none">
                                     {{ __('Restablecer contraseña') }}
                                 </button>
                             </div>

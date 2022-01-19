@@ -163,7 +163,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer bg-gray mt-2 p-3">
+        <footer class="footer bg-gray mt-2 p-2">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-xs-12 col-sm-12 text-center my-auto col-md-3">
