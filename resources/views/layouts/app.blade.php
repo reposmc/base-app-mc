@@ -130,7 +130,7 @@
                             <div class=" col-sm-4 col-md-6 d-none d-md-block d-lg-block d-xl-block">
                                 <div class="col-4 col-sm-12">
                                     <a class="navbar-brand" href="{{ url('/') }}">
-                                        <h3 class="text-uppercase pt-4 fw-bold color-secondary mb-0">Casas de la cultura
+                                        <h3 class="text-uppercase pt-4 fw-bold color-secondary mb-0">Título/Logo Base
                                         </h3>
                                     </a>
                                 </div>
@@ -139,9 +139,9 @@
                                 <div class="col-6 col-md-6 text-right d-none d-md-block d-lg-block d-xl-block">
                                     <div class="row mt-3 mb-1">
                                         <div class=" col-md-12 text-end">
-                                            <a href="{{ url('/login') }}" class="btn btn-normal-nav">Iniciar sesión</a>
+                                            <a href="{{ url('/login') }}" class="btn btn-normal-nav shadow-none">Iniciar sesión</a>
                                             <a href="{{ route('register') }}"
-                                                class="btn btn-normal-secondary-nav">Registrarme</a>
+                                                class="btn btn-normal-secondary-nav shadow-none">Registrarme</a>
                                         </div>
 
                                     </div>
@@ -182,7 +182,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer bg-gray mt-2">
+        <footer class="footer bg-gray mt-2 p-3">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-xs-12 col-sm-12 text-center my-auto col-md-3">
