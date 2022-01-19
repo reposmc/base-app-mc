@@ -18,13 +18,28 @@ window.Vue = require("vue").default;
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+const files = require.context("./", true, /\.vue$/i, "lazy");
 
-Vue.component(
-    "example-component",
-    require("./components/ExampleComponent.vue").default
-);
+files.keys().map((key) => {
+    const names = key
+        .split("/")
+        .pop()
+        .split(".")[0]
+        .split(/(?=[A-Z])/); //Getting only the name file Ex: AcademicLevel
+
+    let fullNameComponent = "";
+
+    // Ex: ['Academic', 'Level'];
+    names.forEach((name, index) => {
+        fullNameComponent +=
+            index < names.length - 1
+                ? `${name.toLowerCase()}-` // 'academic-'
+                : name.toLowerCase(); // 'academic-level'
+    });
+
+    // console.log(fullNameComponent, key);
+    Vue.component(fullNameComponent, () => import(`${key}`)); //Registering component
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
