@@ -37,31 +37,9 @@
                             <p class="link mx-auto">Inicio</p>
                         </a>
                     </li>
+
+                    {{-- Administrative routes --}}
                     @if (auth()->user()->hasRole('Administrador') == 'Administrador')
-                        <li class="text-center pb-1">
-                            <a href="{{ url('/departamentos') }}" class="text-center">
-                                <i class="material-icons md-18 mx-auto">apartment</i>
-                            </a>
-                            <a href="{{ url('/departamentos') }}">
-                                <p class="link mx-auto">Departamento</p>
-                            </a>
-                        </li>
-                        <li class="text-center pb-1">
-                            <a href="{{ url('/municipalidades') }}" class="text-center">
-                                <i class="material-icons md-18 mx-auto">holiday_village</i>
-                            </a>
-                            <a href="{{ url('/municipalidades') }}">
-                                <p class="link mx-auto">Municipio</p>
-                            </a>
-                        </li>
-                        <li class="text-center pb-1">
-                            <a href="{{ url('/usuarios') }}" class="text-center">
-                                <i class="material-icons md-18 mx-auto">group</i>
-                            </a>
-                            <a href="{{ url('/usuarios') }}">
-                                <p class="link mx-auto">Usuarios</p>
-                            </a>
-                        </li>
                         <li class="text-center pb-1">
                             <a href="{{ url('/casas') }}" class="text-center">
                                 <i class="material-icons md-18 mx-auto">group</i>
@@ -71,6 +49,8 @@
                             </a>
                         </li>
                     @endif
+                    {{-- End Administrative routes --}}
+
                     <li class="text-center pb-1">
                         <a href="{{ route('register') }}" class="text-center"
                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -95,10 +75,10 @@
 
                     @if (Route::has('register'))
                         <li class="text-center pb-1">
-                            <a href="{{ route('register') }}" class="text-center">
+                            <a href="{{ url('/register') }}" class="text-center">
                                 <i class="material-icons md-18 mx-auto">person_add_alt_1</i>
                             </a>
-                            <a href="{{ route('register') }}">
+                            <a href="{{ url('/register') }}">
                                 <p class="link mx-auto">Registrarse</p>
                             </a>
                         </li>
@@ -209,7 +189,7 @@
 
     </div>
     <!-- Scripts -->
-    <script src="/js/sidebar.js" defer></script>
+    <script src="{{ asset('js/sidebar.js') }}" defer></script>
     <script src="{{ mix('js/manifest.js') }}"></script>
     <script src="{{ mix('js/vendor.js') }}"></script>
     <script src="{{ mix('js/app.js') }}" async defer></script>

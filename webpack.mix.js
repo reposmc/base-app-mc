@@ -1,4 +1,6 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
+
+var WebpackObfuscator = require("webpack-obfuscator");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,6 +13,30 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js("resources/js/app.js", "public/js")
     .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass("resources/sass/app.scss", "public/css")
+    .extract(["vue", "axios"])
+    .options({
+        processCssUrls: true,
+    });
+
+if (!mix.inProduction()) {
+    mix.disableNotifications();
+    mix.sourceMaps();
+    mix.webpackConfig({
+        devtool: "inline-source-map",
+    });
+} else {
+    mix.webpackConfig({
+        plugins: [
+            new WebpackObfuscator(
+                {
+                    compact: true,
+                    rotateStringArray: true,
+                },
+                ["app.js"]
+            ),
+        ],
+    });
+}
