@@ -1,8 +1,17 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+// Museo Sans
+// @font-face {
+//     font-family: "Museo Sans";
+//     font-style: normal;
+//     font-weight: normal;
+//     src: local("Tangerine"),
+//         url("../fonts/MuseoSans-300.ttf") format("truetype");
+// }
