@@ -39,16 +39,22 @@
                     </li>
 
                     {{-- Administrative routes --}}
-                    @if (auth()->user()->hasRole('Administrador') == 'Administrador')
-                        <li class="text-center pb-1">
-                            <a href="{{ url('/casas') }}" class="text-center">
-                                <i class="material-icons md-18 mx-auto">group</i>
+                    {{-- @if (auth()->user()->hasRole('Administrador') == 'Administrador') --}}
+                    <li>
+                        <div class="iocn-link pb-1">
+                            <a href="#" class="arrow text-center">
+                                <i class="material-icons md-18 mx-auto">settings</i>
                             </a>
-                            <a href="{{ url('/casas') }}" class="pb-3">
-                                <p class="link mx-auto">Casas de la cultura</p>
-                            </a>
-                        </li>
-                    @endif
+                            <p class="link text-center" style="font-size: 11px">Administración</p>
+                        </div>
+                        <ul class="sub-menu pb-0">
+                            <li><a class="pl-2 pr-2 pt-2 pb-2" href="{{ url('/departamentos') }}">
+                                    Departamento</a></li>
+                            <li><a class="pl-2 pr-2 pt-2 pb-2" href="{{ url('/municipalidades') }}">
+                                    Municipio</a></li>
+                        </ul>
+                    </li>
+                    {{-- @endif --}}
                     {{-- End Administrative routes --}}
 
                     <li class="text-center pb-1">

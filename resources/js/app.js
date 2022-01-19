@@ -1,12 +1,16 @@
+import "bootstrap";
+import Vue from "vue";
+
 import Vuetify from "vuetify";
+import es from "vuetify/src/locale/es.ts";
+import Vuelidate from "vuelidate";
+import VueMask from "v-mask";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
-require("./bootstrap");
 
 window.Vue = require("vue").default;
 
@@ -47,9 +51,25 @@ files.keys().map((key) => {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.use(Vuetify);
+Vue.use(VueMask).use(Vuelidate).use(Vuetify);
+
+Vue.config.productionTip = true;
+Vue.config.devtools = true;
+
+export default new Vuetify({
+    lang: {
+        locales: {
+            es,
+        },
+        current: "es",
+    },
+    icons: {
+        iconfont: "md",
+    },
+});
 
 const app = new Vue({
     el: "#app",
     vuetify: new Vuetify(),
+    validations: {},
 });

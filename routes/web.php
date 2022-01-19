@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +23,9 @@ Auth::routes(['verify' => true]);
 
 Route::group(['middleware'=> ['auth', 'verified']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('/api/department', DepartmentController::class);
+
+    Route::get('/departamentos', function () {
+        return view('department.index');
+    });
 });
