@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="">
-                    <div class="card-body shadow card-rounded p-4">
+                    <div class="card-body p-4">
                         <h3 class="card-title color-primary">{{ __('Verify Your Email Address') }}</h3>
                         @if (session('resent'))
-                            <div class="alert alert-success" role="alert">
+                            <div class="alert alert-primary" role="alert">
                                 {{ __('A fresh verification link has been sent to your email address.') }}
                             </div>
                         @endif
