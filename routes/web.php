@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\MunicipalityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +23,16 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::group(['middleware'=> ['auth', 'verified']], function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
     Route::resource('/api/department', DepartmentController::class);
+    Route::resource('/api/municipality', MunicipalityController::class);
 
     Route::get('/departamentos', function () {
         return view('department.index');
+    });
+
+    Route::get('/municipios', function () {
+        return view('municipality.index');
     });
 });

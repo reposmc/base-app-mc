@@ -19,6 +19,7 @@ class CreateDepartmentsTable extends Migration
             $table->string('min_dpto');
             $table->string('may_dpto');
             $table->string('cod_dpto');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateDepartmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('department');
     }
 }

@@ -3,26 +3,29 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Department extends Model
+class Municipality extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'department';
+    protected $table = 'municipality';
 
     public $incrementing = false;
 
     protected $data = ['deleted_at'];
 
     protected $fillable = [
-        'id',
-        'department_name',
-        'min_dpto',
-        'may_dpto',
-        'cod_dpto',
+        'name',
+        'mun_min',
+        'mun_may',
+        'dm_cod',
+        'cod_mun',
+        'department_id',
     ];
+
+    public $timestamps = false;
 
     public $hidden = [
         'created_at',
@@ -30,10 +33,8 @@ class Department extends Model
         'deleted_at',
     ];
 
-    public $timestamps = false;
-
-    public function municipalities()
+    public function department()
     {
-        return $this->hasMany(Department::class);
+        return $this->belongsTo(Department::class, 'department_id', 'id');
     }
 }

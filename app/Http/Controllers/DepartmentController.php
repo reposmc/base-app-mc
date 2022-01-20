@@ -17,9 +17,7 @@ class DepartmentController extends Controller
     public function index()
     {
         $departments = Department::all();
-        foreach ($departments as $department) {
-            $department->id = Crypt::encrypt($department->id);
-        }
+        $departments = EncryptController::encryptArray($departments, ['id']);
 
         return response()->json(['message' => 'success', 'departments'=>$departments]);
     }
@@ -33,6 +31,7 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         Department::insert($request->all());
+
         return response()->json(['message'=>'success']);
     }
 
@@ -56,9 +55,9 @@ class DepartmentController extends Controller
      */
     public function update(Request $request)
     {
-        $request->id = Crypt::decrypt($request->id);
+        $data = EncryptController::decryptModel($request->all(), 'id');
 
-        Department::where('id', $request->id)->update($request->except(['id']));
+        Department::where('id', $data['id'])->update($data);
         return response()->json(["message"=>"success"]);
     }
 
@@ -70,7 +69,7 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        $id = Crypt::decrypt($id);
+        $id = EncryptController::decryptValue($id);
 
         Department::where('id', $id)->delete();
         return response()->json(["message"=>"success"]);
