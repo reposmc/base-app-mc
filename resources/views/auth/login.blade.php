@@ -5,9 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-5 col-12">
             <div class="">
-                {{-- <div class="card-header">{{ __('Login') }}</div> --}}
-
-                <div class="card-body card-rounded shadow">
+                <div class="card-body">
                     <div class="row mb-0 mt-0">
                             <div class="col-md-12 text-center pt-3 pb-3">
                                 <img src="{{ asset('logos/Escudo_D.svg') }}" class="logo-size" alt="Escudo_D">
@@ -38,8 +36,11 @@
                             {{-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
 
                             <div class="col-md-10 offset-md-1 pt-2 pb-2">
-                                <input placeholder="Contraseña" id="password" type="password" class="shadow-none form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                                    <div class="input-icons">
+                                        <input placeholder="Contraseña" id="password" type="password" class="shadow-none form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" >
+                                        <i class="bi bi-eye-slash icon-login" id="togglePassword"></i> 
+                                    </div>
+                                
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -51,7 +52,7 @@
                         <div class="row mb-0 mt-0">
                             <div class="col-md-12 offset-md-4 pt-2 pb-2">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="form-check-input shadow-none" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label text-muted" for="remember" style="font-size: 12px">
                                         {{ __('Recordar Mis Datos') }}

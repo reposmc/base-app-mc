@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-5">
             <div class="">
-                <div class="card-body shadow card-rounded">
+                <div class="card-body">
                     <div class="row mb-3">
                             <div class="col-md-12 text-center pt-2 pb-2">
                                 <img src="{{ asset('logos/Escudo_D.svg') }}" class="logo-size" alt="Escudo_D">
