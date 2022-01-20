@@ -11,20 +11,16 @@
     <title>{{ config('app.name', 'Base') }}</title>
 
     <!-- Scripts -->
-    @if(config('app.env') == 'production')
     <script src="{{ mix('js/manifest.js') }}" defer></script>
     <script src="{{ mix('js/vendor.js') }}" defer></script>
-    @endif
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="{{ asset('js/sidebar.js') }}" defer></script>
-    <script src="{{ asset('js/showPassword.js') }}" defer></script>
-    <script src="{{ asset('js/privacyPolicy.js') }}" defer></script>
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
-        <!-- Favicon -->
-        <link rel="icon" href="{{ asset('img/Favicon.png') }}">
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('img/Favicon.png') }}">
     @yield('css')
 
     @yield('header')
@@ -40,7 +36,7 @@
                 </li>
 
                 @auth
-                <!-- Home -->
+                    <!-- Home -->
                     <li class="text-center pb-1">
                         <a href="{{ url('/home') }}" class="text-center">
                             <i class="material-icons md-18 mx-auto">home</i>
@@ -49,33 +45,29 @@
                             <p class="link mx-auto">Inicio</p>
                         </a>
                     </li>
-                <!-- Home -->
-                
-                <!-- Settings -->
+                    <!-- Home -->
+
+                    <!-- Settings -->
                     <!-- Administrative routes -->
-                    @if (auth()->user()->hasRole('Administrador') == 'Administrador')
-                <li>
-                    <div class="icon-link pb-1">
-                        <a href="#" class="arrow text-center">
-                            <i class="material-icons md-18 mx-auto">settings</i>
-                        </a>
-                        <p class="link">Administración</p>
-                    </div>
-                    <ul class="sub-menu">
-                        <li><a href="{{ url('/users') }}">Usuario</a></li>
-                        <li><a href="{{ url('/departments ') }}">Departamento</a></li>
-                        <li><a href="{{ url('/municipalities') }}">Municipio</a></li>
-                        <li><a href="{{ url('/profesiones') }}">Profesión</a></li>
-                        <li><a href="{{ url('/generos') }}">Género</a></li>
-                        <li><a href="{{ url('/salario') }}">Rango Salarial</a></li>
-                        <li><a href="{{ url('/estados_civiles') }}">Estado Civil</a></li>
-                    </ul>
-                </li>
+                    @if (auth()->user()->hasRole('Administrator') == 'Administrator')
+                        <li>
+                            <div class="icon-link pb-1">
+                                <a href="#" class="arrow text-center">
+                                    <i class="material-icons md-18 mx-auto">settings</i>
+                                </a>
+                                <p class="link">Administración</p>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a href="{{ url('/departments ') }}">Departamentos</a></li>
+                                <li><a href="{{ url('/municipalities') }}">Municipios</a></li>
+                                <li><a href="{{ url('/users') }}">Usuarios</a></li>
+                            </ul>
+                        </li>
                     @endif
                     <!-- End Administrative routes -->
-                <!-- Settings -->
+                    <!-- Settings -->
 
-                <!-- Logout -->
+                    <!-- Logout -->
                     <li class="text-center pb-1">
                         <a href="{{ route('register') }}" class="text-center"
                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -86,7 +78,7 @@
                             <p class="link mx-auto">Cerrar sesión</p>
                         </a>
                     </li>
-                <!-- Logout -->
+                    <!-- Logout -->
                 @endauth
 
                 <!-- Login/Logout -->
@@ -114,9 +106,9 @@
                 <!-- Login/Logout -->
             </ul>
         </div>
-<!-- Sidebar -->
+        <!-- Sidebar -->
 
-<!-- Home Section -->
+        <!-- Home Section -->
         <div class="home-section">
             <div class="home-content pt-5 pb-5">
                 <div class="container-fluid">
@@ -145,7 +137,7 @@
                                         </h3>
                                     </a>
                                 </div>
-                            </div> 
+                            </div>
                             <!-- Institution Name -->
 
                             <!-- Logo Brand -->
@@ -173,7 +165,7 @@
                             @endguest
 
                             @auth
-                            <!-- Logout/UserName -->
+                                <!-- Logout/UserName -->
                                 <div class="col-6 col-md-4 col-sm-4 d-none d-md-block d-lg-block d-xl-block">
                                     <div class="row d-none d-md-block">
                                         <div class="col-12 col-sm-12 col-md-12 pb-0 pt-4 mt-1 text-end">
@@ -195,22 +187,22 @@
                                         </div>
                                     </div>
                                 </div>
-                            <!-- Logout/UserName -->
+                                <!-- Logout/UserName -->
                             @endauth
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-<!-- Home Section -->
+        <!-- Home Section -->
 
-<!-- Main -->
+        <!-- Main -->
         <main class="main content py-4">
             @yield('content')
         </main>
-<!-- Main -->
+        <!-- Main -->
 
-<!-- Button trigger modal 
+        <!-- Button trigger modal
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Launch modal</button>
 -->
 
@@ -238,29 +230,31 @@
         </footer>
         <!-- Footer -->
     </div>
-</div>
-
-
-<!-- Modal  -->
-<div class="modal fade" id="exampleModal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
-  </div>
-</div>
+
+
+    <!-- Modal  -->
+    <div class="modal fade" id="exampleModal" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
-     @yield('scripts')
+    @yield('scripts')
 </body>
+
 </html>

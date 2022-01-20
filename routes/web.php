@@ -25,22 +25,26 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::group(['middleware'=> ['auth', 'verified']], function () {
+    Route::group(['middleware'=>['is.admin']], function () {
+        // Apis
+        Route::resource('/api/department', DepartmentController::class);
+        Route::resource('/api/municipality', MunicipalityController::class);
+        Route::resource('/api/user', UserController::class);
+        Route::resource('/api/role', RoleController::class);
+
+        // Views
+        Route::get('/departments', function () {
+            return view('department.index');
+        });
+
+        Route::get('/municipalities', function () {
+            return view('municipality.index');
+        });
+
+        Route::get('/users', function () {
+            return view('user.index');
+        });
+    });
+
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-    Route::resource('/api/department', DepartmentController::class);
-    Route::resource('/api/municipality', MunicipalityController::class);
-    Route::resource('/api/user', UserController::class);
-    Route::resource('/api/role', RoleController::class);
-
-    Route::get('/departments', function () {
-        return view('department.index');
-    });
-
-    Route::get('/municipalities', function () {
-        return view('municipality.index');
-    });
-
-    Route::get('/users', function () {
-        return view('user.index');
-    });
 });
