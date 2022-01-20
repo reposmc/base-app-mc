@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\MunicipalityController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +29,18 @@ Route::group(['middleware'=> ['auth', 'verified']], function () {
 
     Route::resource('/api/department', DepartmentController::class);
     Route::resource('/api/municipality', MunicipalityController::class);
+    Route::resource('/api/user', UserController::class);
+    Route::resource('/api/role', RoleController::class);
 
-    Route::get('/departamentos', function () {
+    Route::get('/departments', function () {
         return view('department.index');
     });
 
-    Route::get('/municipios', function () {
+    Route::get('/municipalities', function () {
         return view('municipality.index');
+    });
+
+    Route::get('/users', function () {
+        return view('user.index');
     });
 });

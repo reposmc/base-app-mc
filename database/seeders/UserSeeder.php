@@ -20,7 +20,10 @@ class UserSeeder extends Seeder
         $roleUser = Role::findOrFail(2);
 
         $admin = User::create([
+            'id' => 1,
             'name' => 'Leonel',
+            'last_name' => 'Lopez',
+            'dui' => '12345678-1',
             'email' => 'leonellopez647@gmail.com',
             'password' => Hash::make('Leonel23'),
             'name' => 'Leonel',
@@ -29,7 +32,10 @@ class UserSeeder extends Seeder
         $admin->assignRole($roleAdmin);
 
         $user = User::create([
+            'id' => 2,
             'name' => 'Leonel',
+            'last_name' => 'Lopez',
+            'dui' => '12345678-9',
             'email' => 'lopezleonel191@gmail.com',
             'password' => Hash::make('Leonel23'),
             'name' => 'Leonel',
