@@ -6,6 +6,8 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\MunicipalityController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\ExcelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,5 +48,13 @@ Route::group(['middleware'=> ['auth', 'verified']], function () {
         });
     });
 
+    //Reports
+    Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+
+    //Excel
+    Route::get('export', [ExcelController::class, 'export']);
+
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
+
+Route::post('import', [ExcelController::class, 'import']);
