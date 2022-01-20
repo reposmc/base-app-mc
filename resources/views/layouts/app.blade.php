@@ -143,7 +143,7 @@
                             <!-- Logo Brand -->
                             <div class=" col-sm-4 col-md-6 d-none d-md-block d-lg-block d-xl-block">
                                 <div class="col-4 col-sm-12">
-                                    <a class="navbar-brand" href="{{ url('/') }}">
+                                    <a class="navbar-brand" href="{{ url('/home') }}">
                                         <img class="" src="/logos/Logo_GOES_horizontal_D.svg" style="max-width: 300px"/>
                                     </a>
                                 </div>
