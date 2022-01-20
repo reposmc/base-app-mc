@@ -513,3 +513,10 @@ textarea:-webkit-autofill,
 select:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px $white inset !important;
 }
+
+.theme--light.v-text-field--outlined
+    > .v-input__control
+    > .v-input__slot
+    fieldset {
+    border-color: $blue-primary !important;
+}
