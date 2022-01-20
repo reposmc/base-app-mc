@@ -16,7 +16,7 @@ var WebpackObfuscator = require("webpack-obfuscator");
 mix.js("resources/js/app.js", "public/js")
     .vue()
     .sass("resources/sass/app.scss", "public/css")
-    .extract(["vue", "axios"])
+    .extract(["vue", "vuetify", "axios"])
     .options({
         processCssUrls: true,
     });

@@ -50,7 +50,7 @@
                         </a>
                     </li>
                 <!-- Home -->
-
+                
                 <!-- Settings -->
                     <!-- Administrative routes -->
                     @if (auth()->user()->hasRole('Administrador') == 'Administrador')
