@@ -113,9 +113,9 @@
             <div class="home-content pt-5 pb-5">
                 <div class="container-fluid">
                     <div class="col-6 col-sm-12 col-md-12">
-                        <div class="row">
+                        <div class="row p-0 m-0" >
                             @auth
-                                <div class="col-6 col-md-1 menu pt-0">
+                                <div class="col-6 col-md-1 menu mt-2">
                                     <div class="col-3 col-sm-3 menu">
                                         <i class="material-icons md-36 mx-auto menu color-secondary ">menu</i>
                                     </div>
@@ -142,9 +142,9 @@
 
                             <!-- Logo Brand -->
                             <div class=" col-sm-4 col-md-6 d-none d-md-block d-lg-block d-xl-block">
-                                <div class="col-4 col-sm-12 mb-2">
+                                <div class="col-4 col-sm-12">
                                     <a class="navbar-brand" href="{{ url('/') }}">
-                                        <img class="" src="/logos/Logo_GOES_horizontal_D.svg" style="max-width: 60%"/>
+                                        <img class="" src="/logos/Logo_GOES_horizontal_D.svg" style="max-width: 300px"/>
                                     </a>
                                 </div>
                             </div> 
@@ -152,7 +152,7 @@
 
                             @guest
                                 <div class="col-6 col-md-6 text-right d-none d-md-block d-lg-block d-xl-block">
-                                    <div class="row mt-1">
+                                    <div class="row mt-2 pt-1">
                                         <div class=" col-md-12 text-end">
                                             <a href="{{ url('/login') }}" class="btn btn-normal-nav shadow-none">Iniciar
                                                 sesión</a>
@@ -168,7 +168,7 @@
                                 <!-- Logout/UserName -->
                                 <div class="col-6 col-md-4 col-sm-4 d-none d-md-block d-lg-block d-xl-block">
                                     <div class="row d-none d-md-block">
-                                        <div class="col-12 col-sm-12 col-md-12 pb-0 pt-4 mt-1 text-end">
+                                        <div class="col-12 col-sm-12 col-md-12 pb-0 text-end">
                                             <span class="color-secondary" style="font-size: 16px;">
                                                 {{ auth()->user()->name }}
                                             </span>
