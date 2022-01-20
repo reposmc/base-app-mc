@@ -34,6 +34,37 @@
                             </div>
 
                             <div class="row mb-0 mt-0">
+                                {{-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> --}}
+
+                                <div class="col-md-10 offset-md-1 pt-2 pb-2">
+                                    <input placeholder="Apellido" id="last_name" type="text"
+                                        class="form-control shadow-none @error('last_name') is-invalid @enderror" name="last_name"
+                                        value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+
+                                    @error('last_name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-0 mt-0">
+                                <div class="col-md-10 offset-md-1 pt-2 pb-2">
+                                    <input placeholder="DUI" id="dui" type="text"
+                                        class="form-control @error('dui') is-invalid @enderror" name="dui"
+                                        value="{{ old('dui') }}" required autofocus pattern="^[0-9]{8}-[0-9]{1}">
+
+                                    @error('dui')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            <div class="row mb-0 mt-0">
                                 {{-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label> --}}
 
                                 <div class="col-md-10 offset-md-1 pt-2 pb-2">

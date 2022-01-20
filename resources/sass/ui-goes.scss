@@ -175,6 +175,11 @@ footer {
     color: $grey-primary-light;
 }
 
+.color-logo {
+    filter: invert(54%) sepia(0) saturate(5748%) hue-rotate(177deg)
+        brightness(126%) contrast(66%);
+}
+
 /**
  * CRUDS
  *
