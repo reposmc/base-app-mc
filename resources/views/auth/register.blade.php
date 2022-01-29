@@ -1,126 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <div class="">
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
-                            <div class="row mb-0 mt-0">
-                                <div class="col-md-12 text-center pt-3 pb-3">
-                                    <img src="{{ asset('logos/Escudo_D.svg') }}" class="logo-size" alt="Escudo_D">
-                                </div>
+
+    {{-- LOGIN SV --}}
+    @if (env('LOGIN_SV_LOGIN'))
+        <div class="container mb-4" ref="top">
+            <div class="row justify-content-center">
+                <div class="col-md-5 col-12">
+                    <div class="card-body shadow card-rounded">
+                        <div class="row">
+                            <div class="col-3 pb-5 mx-auto pl-0 pr-0">
+                                <img src="{{ asset('/img/Escudo_D.svg') }}" class="img-fluid logo-size" alt="Escudo_D" />
                             </div>
-                            <h3 class="color-primary text-center">Ingresa tus datos para registrarte</h3>
-                            <h6 class="color-primary text-center mb-3">
-                                o <a href="/login" class="no-decoration">inicia sesión aquí</a> si ya tienes cuenta.
-                            </h6>
-                            <div class="row mb-0 mt-0">
-                                {{-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> --}}
-
-                                <div class="col-md-10 offset-md-1 pt-2 pb-2">
-                                    <input placeholder="Nombre" id="name" type="text"
-                                        class="form-control shadow-none @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                    @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-0 mt-0">
-                                {{-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> --}}
-
-                                <div class="col-md-10 offset-md-1 pt-2 pb-2">
-                                    <input placeholder="Apellido" id="last_name" type="text"
-                                        class="form-control shadow-none @error('last_name') is-invalid @enderror" name="last_name"
-                                        value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
-
-                                    @error('last_name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-0 mt-0">
-                                <div class="col-md-10 offset-md-1 pt-2 pb-2">
-                                    <input placeholder="DUI" id="dui" type="text"
-                                        class="form-control @error('dui') is-invalid @enderror" name="dui"
-                                        value="{{ old('dui') }}" required autofocus pattern="^[0-9]{8}-[0-9]{1}">
-
-                                    @error('dui')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-
-                            <div class="row mb-0 mt-0">
-                                {{-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label> --}}
-
-                                <div class="col-md-10 offset-md-1 pt-2 pb-2">
-                                    <input placeholder="Correo eletrónico" id="email" type="email"
-                                        class="form-control shadow-none @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email">
-
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-0 mt-0">
-                                {{-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
-                                <div class="col-md-10 offset-md-1 pt-2 pb-2">
-                                    <div class="input-icons">
-                                        <input placeholder="Contraseña" id="password" type="password"
-                                            class="form-control shadow-none @error('password') is-invalid @enderror"
-                                            name="password" required autocomplete="new-password">
-                                        <i class="material-icons icon-login" id="togglePassword">visibility_off</i>
-                                    </div>
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-0 mt-0">
-                                {{-- <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label> --}}
-                                <div class="col-md-10 offset-md-1 pt-2 pb-2">
-                                    <input placeholder="Confirmar contraseña" id="password-confirm" type="password"
-                                        class="form-control shadow-none" name="password_confirmation" required
-                                        autocomplete="new-password">
-                                </div>
-                            </div>
-
-                            <div class="row mb-0 mt-0">
+                        </div>
+                        <h3 class="color-primary text-center">
+                            Ingresa tus datos para registrarte
+                        </h3>
+                        <h6 class="color-primary text-center">
+                            o <a href="/login" class="no-decoration">inicia sesión aquí</a> si
+                            ya tienes cuenta.
+                        </h6>
+                        <div class="auth">
+                            <div class="form-group row mb-0">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-normal-forms shadow-none">
-                                        {{ __('Registrarse') }}
-                                    </button>
+                                    <a href="/redirectToProvider" class="btn btn-normal shadow-none text-uppercase">
+                                        Registrarse con LoginSV
+                                    </a>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endif
+    {{-- END LOGIN SV --}}
 
-@section('scripts')
-    <script src="{{ asset('js/showPassword.js') }}" defer></script>
+    @if (env('LOCAL_LOGIN'))
+        <register />
+    @endif
 @endsection

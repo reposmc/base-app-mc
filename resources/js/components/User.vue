@@ -98,6 +98,8 @@
                         }"
                       />
                     </v-col>
+
+                    <!-- DUI -->
                     <v-col cols="12" sm="6" md="6">
                       <base-input
                         label="DUI"
@@ -111,7 +113,7 @@
                         }"
                       />
                     </v-col>
-                    <!-- User Name -->
+
                     <!-- Rol  -->
                     <v-col cols="12" sm="6" md="6">
                       <base-select
@@ -143,7 +145,7 @@
                         v-model="$v.editedItem.password.$model"
                         :validation.sync="$v.editedItem.password"
                         validationTextType="none"
-                        type="password"
+                        :type="typePassword"
                         :min="1"
                         autocomplete="off"
                         :validationsInput="{
@@ -151,7 +153,9 @@
                           minLength: true,
                           maxnLength: true,
                           isValidPassword: true,
+                          showPassword: true,
                         }"
+                        @update-password="showPassword($event)"
                       />
                     </v-col>
                     <!-- Password -->
@@ -253,6 +257,7 @@ export default {
       roles: [],
       redirectSessionFinished: false,
       showAlert: false,
+      typePassword: "password",
     };
   },
 
@@ -518,6 +523,10 @@ export default {
 
     updateTimeOut(event) {
       this.redirectSessionFinished = event;
+    },
+
+    showPassword(e) {
+      this.typePassword = e.show;
     },
   },
 };

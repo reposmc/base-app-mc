@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
             'id' => 2,
             'name' => 'Leonel',
             'last_name' => 'Lopez',
-            'dui' => '12345678-9',
+            'dui' => '12345678-2',
             'email' => 'lopezleonel191@gmail.com',
             'password' => Hash::make('Leonel23'),
             'name' => 'Leonel',

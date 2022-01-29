@@ -49,7 +49,7 @@
 
                     <!-- Settings -->
                     <!-- Administrative routes -->
-                    @if (auth()->user()->hasRole('Administrator') == 'Administrator')
+                    @if (auth()->user()->hasRole('Administrador') == 'Administrador')
                         <li>
                             <div class="icon-link pb-1">
                                 <a href="#" class="arrow text-center">
@@ -115,15 +115,15 @@
                     <div class="col-6 col-sm-12 col-md-12">
                         <div class="row">
                             @auth
-                                <div class="col-6 col-md-1 menu pt-0">
-                                    <div class="col-3 col-sm-3 menu">
-                                        <i class="material-icons md-36 mx-auto menu color-secondary ">menu</i>
+                                <div class="col-6 col-md-1 menu my-auto">
+                                    <div class="col-3 col-sm-3 menu my-auto">
+                                        <i class="material-icons md-36 mx-auto menu color-secondary my-auto">menu</i>
                                     </div>
                                 </div>
                             @endauth
                             @guest
-                                <div class="col-6 col-md-1 menu pt-0 d-block d-md-none d-lg-none d-xl-none">
-                                    <div class="col-3 col-sm-3 menu mt-0 pt-0">
+                                <div class="col-6 col-md-1 menu pt-0 mt-0 d-block d-md-none d-lg-none d-xl-none">
+                                    <div class="col-3 col-sm-3 menu">
                                         <i class="material-icons md-36 mx-auto menu color-secondary">menu</i>
                                     </div>
                                 </div>
@@ -144,10 +144,11 @@
                             <div class=" col-sm-4 col-md-6 d-none d-md-block d-lg-block d-xl-block">
                                 <div class="col-4 col-sm-12 mb-2">
                                     <a class="navbar-brand" href="{{ url('/') }}">
-                                        <img class="" src="/logos/Logo_GOES_horizontal_D.svg" style="max-width: 60%"/>
+                                        <img class="" src="/logos/Logo_GOES_horizontal_D.svg"
+                                            style="max-width: 60%" />
                                     </a>
                                 </div>
-                            </div> 
+                            </div>
                             <!-- Logo Brand -->
 
                             @guest
@@ -168,7 +169,7 @@
                                 <!-- Logout/UserName -->
                                 <div class="col-6 col-md-4 col-sm-4 d-none d-md-block d-lg-block d-xl-block">
                                     <div class="row d-none d-md-block">
-                                        <div class="col-12 col-sm-12 col-md-12 pb-0 pt-4 mt-1 text-end">
+                                        <div class="col-12 col-sm-12 col-md-12 pb-0 pt-2 mt-1 text-end">
                                             <span class="color-secondary" style="font-size: 16px;">
                                                 {{ auth()->user()->name }}
                                             </span>
@@ -202,40 +203,11 @@
         </main>
         <!-- Main -->
 
-
-        <!-- Footer Vue -->
-
-          <div data-app>
-                <footer-vue />
-          </div>
-
-        <!-- Footer Vue -->
-
-        <!-- Footer Blade -->
-        {{-- <footer class="footer bg-gray mt-2 p-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-xs-12 col-sm-12 text-center my-auto col-md-3">
-                        <a class="mya my-auto footer-text" href="https://www.cultura.gob.sv" target="_blank">
-                            Ministerio de cultura
-                        </a>
-                    </div>
-                    <div class="col-12 col-xs-12 col-sm-12 text-center my-auto col-md-6 text-center">
-                        <div class="mya">
-                            <img class="logo-footer color-logo" src="/logos/Logo_GOES_horizontal_L.svg" />
-                        </div>
-                    </div>
-                    <div class="col-12 col-xs-12 col-sm-12 text-center my-auto col-md-3">
-                        <div class="mya footer-text" id="exampleModal" data-toggle="modal" data-target="#exampleModal">
-                            Políticas de privacidad
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer> --}}
-        <!-- Footer Blade -->
+        <!-- Footer  -->
+        <footer-vue />
+        <!-- Footer  -->
     </div>
-    </div>
+
     <!-- Scripts -->
     @yield('scripts')
 </body>

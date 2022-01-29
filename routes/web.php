@@ -24,7 +24,7 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true, 'remember_me'=>false]);
 
 Route::group(['middleware'=> ['auth', 'verified']], function () {
     Route::group(['middleware'=>['is.admin']], function () {

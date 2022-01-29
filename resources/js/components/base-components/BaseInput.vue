@@ -4,7 +4,7 @@
       dense
       :label="label"
       outlined
-      v-model="data"
+      v-model.trim="data"
       :class="{
         'is-invalid': validation.$error,
         'is-valid': !validation.$invalid,
@@ -18,7 +18,16 @@
       @keyup="validateText()"
       autocomplete="new-password"
       class="mb-1"
-    ></v-text-field>
+    >
+      <v-icon
+        slot="append"
+        color="green"
+        v-if="validationsInput.showPassword"
+        @click="showPassword()"
+      >
+        {{ icon }}
+      </v-icon>
+    </v-text-field>
     <v-container class="mb-0 pt-0 my-auto orange-text" v-if="validation.$dirty">
       <template v-if="!validationsInput.required">
         <v-row class="pt-0" v-if="!validationsInput.required">
@@ -103,6 +112,26 @@
             electrónico inválido.
           </p>
         </v-row>
+        <v-row
+          v-if="validationsInput.isValidPassword && !validation.isValidPassword"
+        >
+          <p class="mt-1">
+            <i class="material-icons">error_outline</i>
+            8 caracteres mínimo.
+          </p>
+          <p class="mt-1">
+            <i class="material-icons">error_outline</i>
+            1 mayúscula mínimo.
+          </p>
+          <p class="mt-1">
+            <i class="material-icons">error_outline</i>
+            1 minúscula mínimo.
+          </p>
+          <p class="mt-1">
+            <i class="material-icons">error_outline</i>
+            13 caracteres máximo.
+          </p>
+        </v-row>
       </template>
     </v-container>
   </div>
@@ -115,6 +144,7 @@ export default {
     return {
       data: "",
       counter: 0,
+      icon: "visibility",
     };
   },
   props: {
@@ -159,6 +189,7 @@ export default {
           isValidConamypeId: false,
           isValidNrc: false,
           email: false,
+          showPassword: false,
         };
       },
     },
@@ -169,6 +200,11 @@ export default {
     max: {
       type: Number,
       default: 150,
+    },
+  },
+  watch: {
+    type(val) {
+      this.icon = this.type == "password" ? "visibility" : "visibility_off";
     },
   },
   mounted() {
@@ -215,6 +251,14 @@ export default {
 
       this.validation.$model = this.data;
       this.$emit("keyup", this.data);
+    },
+
+    showPassword() {
+      //   console.log("Click", this.type == "password" ? "text" : "password");
+      const show = this.type == "password" ? "text" : "password";
+      //   this.icon = this.typeData == "password" ? "visibility" : "visibility_off";
+
+      this.$emit("update-password", { show });
     },
   },
 };

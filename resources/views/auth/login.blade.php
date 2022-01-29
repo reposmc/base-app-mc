@@ -16,72 +16,84 @@
                                 class="no-decoration">regístrate
                                 aquí</a> si aún no tienes
                             cuenta.</h6>
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
 
-                            <div class="row mb-0 mt-0">
-                                {{-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label> --}}
+                        @if (env('LOCAL_LOGIN'))
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
 
-                                <div class="col-md-10 offset-md-1 pt-2 pb-2">
-                                    <input placeholder="Correo Electrónico" id="email" type="email"
-                                        class="shadow-none form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <div class="form-group row mb-0">
 
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
+                                    <div class="col-md-10 offset-md-1">
+                                        <v-text-field dense label="Correo" class="pt-1" outlined id="email"
+                                            type="email" name="email" value="{{ old('email') }}" required
+                                            autocomplete="email" autofocus>
+                                        </v-text-field>
 
-                            <div class="row mb-0 mt-0">
-                                {{-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
-
-                                <div class="col-md-10 offset-md-1 pt-2 pb-2">
-                                    <div class="input-icons">
-                                        <input placeholder="Contraseña" id="password" type="password"
-                                            class="shadow-none form-control @error('password') is-invalid @enderror"
-                                            name="password" required autocomplete="current-password">
-                                        <i class="material-icons icon-login" id="togglePassword">visibility_off</i>
-                                    </div>
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-0 mt-0">
-                                <div class="col-md-12 offset-md-4 pt-2 pb-2">
-                                    <div class="form-check">
-                                        <input class="form-check-input shadow-none" type="checkbox" name="remember"
-                                            id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                        <label class="form-check-label text-muted" for="remember" style="font-size: 12px">
-                                            {{ __('Recordar Mis Datos') }}
-                                        </label>
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert" style="display: block;">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="row mb-0 mt-0">
-                                <div class="col-md-12 pt-2 pb-2 text-center">
-                                    <button type="submit" class="btn btn-normal-forms shadow-none">
-                                        {{ __('ENTRAR') }}
-                                    </button>
+                                <div class="form-group row mb-0 mt-0">
+                                    <div class="col-md-10 offset-md-1 pt-0">
+                                        <v-text-field dense label="Contraseña" class="pt-1" outlined id="password"
+                                            type="password" name="password" required autocomplete="current-password">
+                                        </v-text-field>
+
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert" style="display: block;">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
+                                    </div>
                                 </div>
-                                <div class="col-md-12 pt-2 pb-2 text-center">
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-link shadow-none" href="{{ route('password.request') }}">
-                                            {{ __('¿Olvidaste tu contraseña?') }}
-                                        </a>
-                                    @endif
+
+                                <div class="row mb-0 mt-0">
+                                    <div class="col-md-12 offset-md-4 pt-2 pb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input shadow-none" type="checkbox" name="remember"
+                                                id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                            <label class="form-check-label text-muted" for="remember"
+                                                style="font-size: 12px">
+                                                {{ __('Recuerda mis datos') }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-0 mt-0">
+                                    <div class="col-md-12 pt-2 pb-2 text-center">
+                                        <button type="submit" class="btn btn-normal-forms shadow-none">
+                                            {{ __('ENTRAR') }}
+                                        </button>
+                                    </div>
+                                    <div class="col-md-12 pt-2 pb-2 text-center">
+                                        @if (Route::has('password.request'))
+                                            <a class="btn btn-link shadow-none" href="{{ route('password.request') }}">
+                                                {{ __('¿Olvidaste tu contraseña?') }}
+                                            </a>
+                                        @endif
+                                    </div>
+                                </div>
+                            </form>
+                        @endif
+
+                        {{-- LOGIN SV --}}
+                        @if (env('LOGIN_SV_LOGIN'))
+                            <div class="form-group row-fluid mb-0">
+                                <div class="col-md-12 text-center">
+                                    <a href="/redirectToProvider" class=" btn btn-normal shadow-none text-uppercase">
+                                        {{ __('Iniciar sesión con LoginSV') }}
+                                    </a>
                                 </div>
                             </div>
-                        </form>
+                        @endif
+                        {{-- END LOGIN SV --}}
                     </div>
                 </div>
             </div>

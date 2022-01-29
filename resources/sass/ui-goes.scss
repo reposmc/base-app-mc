@@ -149,6 +149,15 @@ footer {
     display: unset !important;
 }
 
+.theme--light.v-input,
+.theme--light.v-input input,
+.theme--light.v-input textarea {
+    color: $blue-primary;
+}
+
+.v-text-field--outlined >>> fieldset {
+    border-color: rgba(192, 0, 250, 0.986);
+}
 /**
  * Footer
  *
