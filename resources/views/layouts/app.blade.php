@@ -113,7 +113,7 @@
             <div class="home-content pt-5 pb-5">
                 <div class="container-fluid">
                     <div class="col-6 col-sm-12 col-md-12">
-                        <div class="row">
+                        <div class="row p-0 m-0">
                             @auth
                                 <div class="col-6 col-md-1 menu my-auto">
                                     <div class="col-3 col-sm-3 menu my-auto">
@@ -153,7 +153,7 @@
 
                             @guest
                                 <div class="col-6 col-md-6 text-right d-none d-md-block d-lg-block d-xl-block">
-                                    <div class="row mt-1">
+                                    <div class="row mt-2 pt-1">
                                         <div class=" col-md-12 text-end">
                                             <a href="{{ url('/login') }}" class="btn btn-normal-nav shadow-none">Iniciar
                                                 sesión</a>
