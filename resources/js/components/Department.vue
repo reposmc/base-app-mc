@@ -366,7 +366,7 @@ export default {
         );
 
         const res = await departmentApi
-          .put(`/${this.editedItem.id}`)
+          .put(`/${this.editedItem.id}`, this.editedItem)
           .catch((error) => {
             this.updateAlert(
               true,

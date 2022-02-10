@@ -55,6 +55,7 @@ class DepartmentController extends Controller
      */
     public function update(Request $request)
     {
+        // dd($request->all());
         $data = EncryptController::decryptModel($request->all(), 'id');
 
         Department::where('id', $data['id'])->update($data);
