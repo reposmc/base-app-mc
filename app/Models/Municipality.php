@@ -10,7 +10,7 @@ class Municipality extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'municipality';
+    protected $table = 'municipalities';
 
     public $incrementing = false;
 
