@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App;
 
-class IsAdmin
+class HasRole
 {
     /**
      * Handle an incoming request.
@@ -14,12 +15,15 @@ class IsAdmin
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        if (!auth()->user()->hasRole('Administrador')) {
-            return redirect('/');
+        foreach ($roles as $role) {
+            // if user has given role, continue processing the request
+            if (auth()->user()->hasRole($role)) {
+                return $next($request);
+            }
         }
 
-        return $next($request);
+        App::abort(403);
     }
 }

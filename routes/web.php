@@ -27,7 +27,7 @@ Route::get('/', function () {
 Auth::routes(['verify' => true, 'remember_me'=>false]);
 
 Route::group(['middleware'=> ['auth', 'verified']], function () {
-    Route::group(['middleware'=>['is.admin']], function () {
+    Route::group(['middleware'=>['has.role:Administrador']], function () {
         // Apis
         Route::resource('/api/department', DepartmentController::class);
         Route::resource('/api/municipality', MunicipalityController::class);
