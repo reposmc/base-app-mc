@@ -254,9 +254,7 @@ export default {
     },
 
     showPassword() {
-      //   console.log("Click", this.type == "password" ? "text" : "password");
       const show = this.type == "password" ? "text" : "password";
-      //   this.icon = this.typeData == "password" ? "visibility" : "visibility_off";
 
       this.$emit("update-password", { show });
     },

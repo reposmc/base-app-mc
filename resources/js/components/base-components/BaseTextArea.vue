@@ -14,7 +14,7 @@
       @input="updateValue"
     >
     </v-textarea>
-    <v-container class="pb-0 pt-0 pl-4 pl-1 m-0 my-auto orange-text">
+    <div class="pb-0 pt-0 pl-4 pl-1 m-0 my-auto orange-text">
       <v-row v-if="validationsInput.required && validation.$error">
         <p class="mb-0 mt-0">
           <i class="material-icons mt-0">error_outline</i> Campo requerido.
@@ -31,7 +31,7 @@
           máximo.
         </p>
       </v-row>
-    </v-container>
+    </div>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-select
+    <v-autocomplete
       dense
       outlined
       :label="label"
@@ -10,7 +10,15 @@
       v-model="validation.$model"
       class="p-0 mt-0"
       @change="$emit('change', validation.$model)"
-    ></v-select>
+    ></v-autocomplete>
+    <v-row
+      v-if="validation.$error && validationsInput.required"
+      class="pt-0 orange-text"
+    >
+      <p class="mb-0 mt-1">
+        <i class="material-icons">error_outline</i> Campo requerido.
+      </p>
+    </v-row>
   </div>
 </template>
 
@@ -46,6 +54,15 @@ export default {
     readonly: {
       type: Boolean,
       default: false,
+    },
+    validationsInput: {
+      type: Object,
+      default: () => {
+        return {
+          required: true,
+          minLength: true,
+        };
+      },
     },
   },
   mounted() {

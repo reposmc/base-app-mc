@@ -88,6 +88,10 @@ export default {
 </script>
 
 <style>
+.v-picker__title {
+  background-color: #374ea8 !important;
+}
+
 .v-btn--active .date-color {
   color: #374ea8;
 }
