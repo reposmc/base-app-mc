@@ -41,6 +41,16 @@ class createBackup extends Command
      */
     public function handle()
     {
+	/*try{
+        $command = "mysqldump --user=".env('DB_USERNAME')." --password='".env('DB_PASSWORD')."' --host=".env('DB_HOST')." ".env('DB_DATABASE')." > /var/www/".env('DB_DATABASE').".sql";
+        $returnVar = null;
+        $output  = null;
+
+        exec($command, $output, $returnVar);
+	} catch($th){
+		$this->error("Backup couldn't be created.");
+	}*/
+
         $tenantId = '9cb613b4-fccb-4157-9644-4944635cd3af';
         $clientId = '4ca20de8-6467-4206-ade2-cdc65b0efe93';
         $clientSecret = 'Bdh7Q~0eik0h.k5keQG4czeySnxbHhi_SrTpe';
