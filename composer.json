@@ -19,7 +19,6 @@
         "leolopez/backup": "^1.0",
         "maatwebsite/excel": "^3.1",
         "spatie/laravel-permission": "^5.5",
-        "leolopez/backup": "*"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",
@@ -30,12 +29,6 @@
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./leolopez/backup"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "App\\": "app/",
@@ -46,7 +39,6 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "Leolopez\\Backup\\": "leolopez/backup/src/"
         }
     },
     "scripts": {
@@ -74,6 +66,6 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
