@@ -178,6 +178,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Leolopez\Backup\BackupServiceProvider::class,
         Leolopez\Encrypt\EncryptServiceProvider::class
     ],
