@@ -11,7 +11,7 @@ Proyecto base para el Ministerio de Cultura
 -   Límite de peticiones hacia el servidor de 75 peticion/min
 -   Encriptación de valores
 -   Autenticación por LoginSV
--   Importación de los usuarios registrados a un CSV
+-   Exportación de usuarios registrados a un CSV
 
 ## Módulos disponibles
 
