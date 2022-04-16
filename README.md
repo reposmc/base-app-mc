@@ -2,13 +2,14 @@
 
 # MC Framework
 
-Proyecto base para el Ministerio de Cultura
+Proyecto de desarrollo base para el Ministerio de Cultura
 
 ## Características disponibles
 
 -   Autenticación por JWT
 -   Backups automáticos en el servidor y en una cuenta de OneDrive
 -   Línea gráfica del GOES
+-   Componentes pre-fabricados
 -   Traducido al español
 -   Límite de peticiones hacia el servidor de 75 peticiones/min
 -   Encriptación de valores
