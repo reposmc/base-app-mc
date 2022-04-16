@@ -1,6 +1,4 @@
-<center>
-<img src="https://www.cultura.gob.sv/wp-content/uploads/2021/06/MinisterioCultura.png" width="400px" height="200px"></img>
-</center>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://www.cultura.gob.sv/wp-content/uploads/2021/06/MinisterioCultura.png" width="400"></a></p>
 
 # MC Framework
 
