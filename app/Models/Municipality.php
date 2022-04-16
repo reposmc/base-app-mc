@@ -12,7 +12,7 @@ class Municipality extends Model
 
     protected $table = 'municipalities';
 
-    public $incrementing = false;
+    public $incrementing = true;
 
     protected $data = ['deleted_at'];
 

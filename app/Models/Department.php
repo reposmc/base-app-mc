@@ -12,7 +12,7 @@ class Department extends Model
 
     protected $table = 'department';
 
-    public $incrementing = false;
+    public $incrementing = true;
 
     protected $data = ['deleted_at'];
 

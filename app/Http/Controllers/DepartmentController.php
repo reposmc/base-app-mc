@@ -16,7 +16,7 @@ class DepartmentController extends Controller
     public function index()
     {
         $departments = Department::all();
-        $departments = Encrypt::encryptObject($departments, ['id']);
+        $departments = Encrypt::encryptObject($departments, 'id');
 
         return response()->json(['message' => 'success', 'departments'=>$departments]);
     }
@@ -54,9 +54,9 @@ class DepartmentController extends Controller
      */
     public function update(Request $request)
     {
-        $data = Encrypt::decryptModel($request->all(), 'id');
+        $data = Encrypt::decryptArray($request->all(), 'id');
 
-        Department::where('id', $data['id'])->update($data);
+        Department::where('id', $data)->update($data);
         return response()->json(["message"=>"success"]);
     }
 

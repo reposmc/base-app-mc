@@ -23,7 +23,7 @@ class MunicipalityController extends Controller
         }
         $municipalities->makeHidden(['department']);
 
-        $municipalities = Encrypt::encryptObject($municipalities, ['id']);
+        $municipalities = Encrypt::encryptObject($municipalities, 'id');
 
         return response()->json(['message' => 'success', 'municipalities'=>$municipalities]);
     }
@@ -36,7 +36,6 @@ class MunicipalityController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $data = $request->except('department_name');
         $department = Department::where('department_name', $request->department_name)->first();
         $data['department_id'] = $department->id;
@@ -66,12 +65,11 @@ class MunicipalityController extends Controller
     public function update(Request $request)
     {
         $department = Department::where('department_name', $request->department_name)->first();
-        $data = Encrypt::decryptModel($request->except(['department_name']), 'id');
-        // dd($data, $department);
+        $data = Encrypt::decryptArray($request->except(['department_name']), 'id');
 
         $data['department_id'] = $department->id;
 
-        Municipality::where('id', $data['id'])->update($data);
+        Municipality::where('id', $data)->update($data);
         return response()->json(["message"=>"success"]);
     }
 

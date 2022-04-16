@@ -30,9 +30,9 @@ class UserController extends Controller
             $user->rol = $user->getRoleNames()[0];
         }
 
-        $users = Encrypt::encryptObject($users, ['id']);
+        $users = Encrypt::encryptObject($users, 'id');
 
-        $total = count(User::all());
+        $total = User::count();
 
         return response()->json([
             'message' => 'success',
@@ -57,10 +57,7 @@ class UserController extends Controller
 
         $password = Hash::make($request->password);
 
-        $latest = User::find(DB::table('users')->max('id'));
-
         $user = new User();
-        $user->id = $latest->id+1;
         $user->name = $request->name;
         $user->last_name = $request->last_name;
         $user->dui = $request->dui;

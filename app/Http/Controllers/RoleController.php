@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Role;
+use Spatie\Permission\Models\Role;
 use Encrypt;
 
 class RoleController extends Controller
@@ -16,7 +16,7 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        $roles = Encrypt::encryptObject($roles, ['id']);
+        $roles = Encrypt::encryptObject($roles, 'id');
 
         return response()->json(['message' => 'success', 'roles' => $roles]);
     }
