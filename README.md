@@ -8,13 +8,14 @@ Proyecto de desarrollo base para el Ministerio de Cultura
 
 -   Autenticación por JWT
 -   Backups automáticos en el servidor y en una cuenta de OneDrive
--   Línea gráfica del GOES
--   Componentes pre-fabricados
--   Traducido al español
--   Límite de peticiones hacia el servidor de 75 peticiones/min
 -   Encriptación de valores
+-   Componentes pre-fabricados
+-   Log automático de las peticiones realizadas al servidor
 -   Autenticación por LoginSV
+-   Línea gráfica del GOES
+-   Límite de peticiones hacia el servidor de 75 peticiones/min
 -   Exportación de usuarios registrados a un CSV
+-   Traducido al español
 
 ## Módulos disponibles
 
