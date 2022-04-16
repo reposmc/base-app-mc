@@ -19,6 +19,7 @@
         "leolopez/backup": "^1.0",
         "leolopez/encrypt": "^1.0",
         "maatwebsite/excel": "^3.1",
+        "php-open-source-saver/jwt-auth": "^1.4",
         "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
@@ -69,6 +70,6 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
