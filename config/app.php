@@ -179,6 +179,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class,
         Leolopez\Backup\BackupServiceProvider::class,
         Leolopez\Encrypt\EncryptServiceProvider::class
     ],

@@ -16952,10 +16952,10 @@
          * @return Array The array encrypted.
          * @static 
          */ 
-        public static function encryptValueObject($model, $key)
+        public static function encryptValueObject($model, ...$keys)
         {
                         /** @var \Leolopez\Encrypt\Classes\Encrypt $instance */
-                        return $instance->encryptValueObject($model, $key);
+                        return $instance->encryptValueObject($model, ...$keys);
         }
                     /**
          * Encrypt a value of an Eloquent Model, specifying the field to be encrypted.
@@ -16965,10 +16965,10 @@
          * @return Array The array encrypted.
          * @static 
          */ 
-        public static function decryptValueObject($model, $key)
+        public static function decryptValueObject($model, ...$keys)
         {
                         /** @var \Leolopez\Encrypt\Classes\Encrypt $instance */
-                        return $instance->decryptValueObject($model, $key);
+                        return $instance->decryptValueObject($model, ...$keys);
         }
                     /**
          * Encrypts an specific value.

@@ -2181,16 +2181,16 @@
         },
         {
             "name": "leolopez/encrypt",
-            "version": "1.1.0",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leolopez48/encrypt.git",
-                "reference": "8784485f71888d2d001200303a2f406371950051"
+                "reference": "79ed2619e26dd6387e716b3c3f359b698b67c982"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leolopez48/encrypt/zipball/8784485f71888d2d001200303a2f406371950051",
-                "reference": "8784485f71888d2d001200303a2f406371950051",
+                "url": "https://api.github.com/repos/leolopez48/encrypt/zipball/79ed2619e26dd6387e716b3c3f359b698b67c982",
+                "reference": "79ed2619e26dd6387e716b3c3f359b698b67c982",
                 "shasum": ""
             },
             "type": "library",
@@ -2222,9 +2222,9 @@
             "description": "Encrypts any field from a model, array or value.",
             "support": {
                 "issues": "https://github.com/leolopez48/encrypt/issues",
-                "source": "https://github.com/leolopez48/encrypt/tree/1.1.0"
+                "source": "https://github.com/leolopez48/encrypt/tree/1.1.2"
             },
-            "time": "2022-04-16T18:54:37+00:00"
+            "time": "2022-04-16T22:59:30+00:00"
         },
         {
             "name": "maatwebsite/excel",
