@@ -7,6 +7,7 @@ use App\Models\User;
 use DB;
 use Hash;
 use Spatie\Permission\Models\Role;
+use Encrypt;
 
 class UserController extends Controller
 {
@@ -29,7 +30,7 @@ class UserController extends Controller
             $user->rol = $user->getRoleNames()[0];
         }
 
-        $users = EncryptController::encryptArray($users, ['id']);
+        $users = Encrypt::encryptObject($users, ['id']);
 
         $total = count(User::all());
 
@@ -95,7 +96,7 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        $id = EncryptController::decryptValue($request->id);
+        $id = Encrypt::decryptValue($request->id);
         $user = User::find($id);
 
         $password = Hash::make($request->password);

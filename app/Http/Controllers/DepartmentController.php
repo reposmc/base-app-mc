@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use Encrypt;
 use Illuminate\Http\Request;
-use DB;
-use Crypt;
 
 class DepartmentController extends Controller
 {
@@ -17,7 +16,7 @@ class DepartmentController extends Controller
     public function index()
     {
         $departments = Department::all();
-        $departments = EncryptController::encryptArray($departments, ['id']);
+        $departments = Encrypt::encryptObject($departments, ['id']);
 
         return response()->json(['message' => 'success', 'departments'=>$departments]);
     }
@@ -55,8 +54,7 @@ class DepartmentController extends Controller
      */
     public function update(Request $request)
     {
-        // dd($request->all());
-        $data = EncryptController::decryptModel($request->all(), 'id');
+        $data = Encrypt::decryptModel($request->all(), 'id');
 
         Department::where('id', $data['id'])->update($data);
         return response()->json(["message"=>"success"]);
@@ -70,7 +68,7 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        $id = EncryptController::decryptValue($id);
+        $id = Encrypt::decryptValue($id);
 
         Department::where('id', $id)->delete();
         return response()->json(["message"=>"success"]);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Municipality;
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Encrypt;
 
 class MunicipalityController extends Controller
 {
@@ -22,7 +23,7 @@ class MunicipalityController extends Controller
         }
         $municipalities->makeHidden(['department']);
 
-        $municipalities = EncryptController::encryptArray($municipalities, ['id']);
+        $municipalities = Encrypt::encryptObject($municipalities, ['id']);
 
         return response()->json(['message' => 'success', 'municipalities'=>$municipalities]);
     }
@@ -65,7 +66,7 @@ class MunicipalityController extends Controller
     public function update(Request $request)
     {
         $department = Department::where('department_name', $request->department_name)->first();
-        $data = EncryptController::decryptModel($request->except(['department_name']), 'id');
+        $data = Encrypt::decryptModel($request->except(['department_name']), 'id');
         // dd($data, $department);
 
         $data['department_id'] = $department->id;
@@ -82,7 +83,7 @@ class MunicipalityController extends Controller
      */
     public function destroy($id)
     {
-        $id = EncryptController::decryptValue($id);
+        $id = Encrypt::decryptValue($id);
 
         Municipality::where('id', $id)->delete();
         return response()->json(["message"=>"success"]);

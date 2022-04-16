@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d416baad7431663f64bfb9a5184ef0f",
+    "content-hash": "be2c804c2d5b758aaac6ec33ccecc09e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2040,6 +2040,56 @@
                 "source": "https://github.com/leolopezMC/backup/tree/1.0.0"
             },
             "time": "2022-04-05T05:58:52+00:00"
+        },
+        {
+            "name": "leolopez/encrypt",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leolopez48/encrypt.git",
+                "reference": "76b12e0bb954360b67821de6123c9f40fa1750b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leolopez48/encrypt/zipball/76b12e0bb954360b67821de6123c9f40fa1750b9",
+                "reference": "76b12e0bb954360b67821de6123c9f40fa1750b9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "\\Leolopez\\Encrypt\\EncryptServiceProvider"
+                    ],
+                    "aliases": {
+                        "Encrypt": "Leolopez\\Encrypt\\Facades\\Encrypt"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Leolopez\\Encrypt\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Leonel Lopez",
+                    "email": "leonellopez647@gmail.com"
+                }
+            ],
+            "description": "Encrypts any field from a model, array or value.",
+            "support": {
+                "issues": "https://github.com/leolopez48/encrypt/issues",
+                "source": "https://github.com/leolopez48/encrypt/tree/1.0.1"
+            },
+            "time": "2022-04-16T17:51:20+00:00"
         },
         {
             "name": "maatwebsite/excel",
@@ -8933,7 +8983,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
@@ -8941,5 +8991,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
