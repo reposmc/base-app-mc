@@ -18,6 +18,7 @@ class CreateLogsTable extends Migration
             $table->string('email');
             $table->string('route');
             $table->string('type');
+            $table->string('ip');
             $table->timestamps();
         });
     }

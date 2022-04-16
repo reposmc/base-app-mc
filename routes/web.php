@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true, 'remember_me'=>false]);
 
-Route::group(['middleware'=> ['auth', 'verified', 'log']], function () {
+Route::group(['middleware'=> ['auth', 'verified', 'log', 'throttle:web']], function () {
     Route::group(['middleware'=>['has.role:Administrador']], function () {
         // Apis
         Route::resource('/api/department', DepartmentController::class);

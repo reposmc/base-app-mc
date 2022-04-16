@@ -21,6 +21,7 @@ class LogHistory
             'email' => auth()->user()->email,
             'route' => url()->current(),
             'type' => $request->method(),
+            'ip' => $request->ip()
         ]);
 
         return $next($request);

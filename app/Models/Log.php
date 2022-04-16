@@ -13,12 +13,12 @@ class Log extends Model
 
     public $incrementing = false;
 
-
     protected $fillable = [
         'id',
         'email',
         'route',
         'type',
+        'ip'
     ];
 
     public $hidden = [
