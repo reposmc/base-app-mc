@@ -1,3 +1,5 @@
+<center><img src="https://www.cultura.gob.sv/wp-content/uploads/2021/06/MinisterioCultura.png"></img></center>
+
 # MC Framework
 
 Proyecto base para el Ministerio de Cultura
@@ -8,7 +10,7 @@ Proyecto base para el Ministerio de Cultura
 -   Backups automáticos en el servidor y en una cuenta de OneDrive
 -   Línea gráfica del GOES
 -   Traducido al español
--   Límite de peticiones hacia el servidor de 75 peticion/min
+-   Límite de peticiones hacia el servidor de 75 peticiones/min
 -   Encriptación de valores
 -   Autenticación por LoginSV
 -   Exportación de usuarios registrados a un CSV
