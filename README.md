@@ -38,6 +38,8 @@ Proyecto de desarrollo base para el Ministerio de Cultura
 
 Copiar y pegar el archivo de configuración de ejemplo `.env.example` y renombrando la copia como `.env`
 
+        cp .env.example .env
+
 Generar la llave única
 
         php artisan key:generate
