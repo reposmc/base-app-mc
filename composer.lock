@@ -2131,16 +2131,16 @@
         },
         {
             "name": "leolopez/backup",
-            "version": "1.0.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leolopezMC/backup.git",
-                "reference": "200c8e1358b11f46246e0b6b94fe8ed0f2f64866"
+                "reference": "01ec48cbf5a1ed56472f29358f396f3d09819b33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leolopezMC/backup/zipball/200c8e1358b11f46246e0b6b94fe8ed0f2f64866",
-                "reference": "200c8e1358b11f46246e0b6b94fe8ed0f2f64866",
+                "url": "https://api.github.com/repos/leolopezMC/backup/zipball/01ec48cbf5a1ed56472f29358f396f3d09819b33",
+                "reference": "01ec48cbf5a1ed56472f29358f396f3d09819b33",
                 "shasum": ""
             },
             "require": {
@@ -2175,9 +2175,9 @@
             "description": "Creates a backup of the database.",
             "support": {
                 "issues": "https://github.com/leolopezMC/backup/issues",
-                "source": "https://github.com/leolopezMC/backup/tree/1.0.0"
+                "source": "https://github.com/leolopezMC/backup/tree/1.1.1"
             },
-            "time": "2022-04-05T05:58:52+00:00"
+            "time": "2022-04-16T23:36:56+00:00"
         },
         {
             "name": "leolopez/encrypt",
