@@ -353,12 +353,7 @@ export default {
     },
 
     showPassword(e) {
-      //   e.preventDefault();
-      //   console.log(e);
       this.typePassword = e.show;
-      //   this.typePassword == "password"
-      //     ? (this.typePassword = "text")
-      //     : (this.typePassword = "password");
     },
 
     updateAlert(show = false, text = "Alerta", event = "success") {

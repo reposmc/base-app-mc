@@ -21,11 +21,11 @@ class MunicipalityController extends Controller
         foreach ($municipalities as $municipality) {
             $municipality->department_name = $municipality->department->department_name;
         }
-        $municipalities->makeHidden(['department']);
+        $municipalities->makeHidden(["department"]);
 
-        $municipalities = Encrypt::encryptObject($municipalities, 'id');
+        $municipalities = Encrypt::encryptObject($municipalities, "id");
 
-        return response()->json(['message' => 'success', 'municipalities'=>$municipalities]);
+        return response()->json(["status"=>"success", "message"=>"Registro creado correctamente.", "municipalities"=>$municipalities]);
     }
 
     /**
@@ -36,12 +36,12 @@ class MunicipalityController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->except('department_name');
-        $department = Department::where('department_name', $request->department_name)->first();
-        $data['department_id'] = $department->id;
+        $data = $request->except("department_name");
+        $department = Department::where("department_name", $request->department_name)->first();
+        $data["department_id"] = $department->id;
         Municipality::insert($data);
 
-        return response()->json(['message'=>'success']);
+        return response()->json(["status"=>"success", "message"=>"Registro creado correctamente."]);
     }
 
     /**
@@ -64,13 +64,13 @@ class MunicipalityController extends Controller
      */
     public function update(Request $request)
     {
-        $department = Department::where('department_name', $request->department_name)->first();
-        $data = Encrypt::decryptArray($request->except(['department_name']), 'id');
+        $department = Department::where("department_name", $request->department_name)->first();
+        $data = Encrypt::decryptArray($request->except(["department_name"]), "id");
 
-        $data['department_id'] = $department->id;
+        $data["department_id"] = $department->id;
 
-        Municipality::where('id', $data)->update($data);
-        return response()->json(["message"=>"success"]);
+        Municipality::where("id", $data)->update($data);
+        return response()->json(["status"=>"success", "message"=>"Registro creado correctamente."]);
     }
 
     /**
@@ -83,7 +83,7 @@ class MunicipalityController extends Controller
     {
         $id = Encrypt::decryptValue($id);
 
-        Municipality::where('id', $id)->delete();
-        return response()->json(["message"=>"success"]);
+        Municipality::where("id", $id)->delete();
+        return response()->json(["status"=>"success", "message"=>"Registro creado correctamente."]);
     }
 }

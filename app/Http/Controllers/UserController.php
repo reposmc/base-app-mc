@@ -24,20 +24,21 @@ class UserController extends Controller
         $users = User::skip($skip)->take($limit)
         ->get();
 
-        $users->makeVisible(['password']);
+        $users->makeVisible(["password"]);
 
         foreach ($users as $user) {
             $user->rol = $user->getRoleNames()[0];
         }
 
-        $users = Encrypt::encryptObject($users, 'id');
+        $users = Encrypt::encryptObject($users, "id");
 
         $total = User::count();
 
         return response()->json([
-            'message' => 'success',
-            'users' => $users,
-            'total' => $total,
+            "status" => "success",
+            "message"=>"Registros obtenidos correctamente.",
+            "users" => $users,
+            "total" => $total,
         ]);
     }
 
@@ -49,10 +50,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = count(User::where(['email'=>$request->email])->get());
+        $user = count(User::where(["email"=>$request->email])->get());
 
         if ($user > 0) {
-            return response()->json(['message' => 'Este correo ya existe.']);
+            return response()->json([
+                "status"=>"fail",
+                "message"=>"Este email ya existe."
+            ]);
         }
 
         $password = Hash::make($request->password);
@@ -67,10 +71,13 @@ class UserController extends Controller
 
         $user->save();
 
-        $role = Role::where('name', $request->rol)->first();
+        $role = Role::where("name", $request->rol)->first();
         $user->assignRole($role);
 
-        return response()->json(['message' => 'success']);
+        return response()->json([
+            "status"=>"success",
+            "message"=>"Registro creado correctamente."
+        ]);
     }
 
     /**
@@ -99,22 +106,25 @@ class UserController extends Controller
         $password = Hash::make($request->password);
 
         $data = [
-            'name' => $request->name,
-            'lastName' => $request->lastName,
-            'email' => $request->email,
-            'password' => $password,
+            "name" => $request->name,
+            "lastName" => $request->lastName,
+            "email" => $request->email,
+            "password" => $password,
         ];
 
         if (isset($request->rol)) {
-            $oldRole = DB::table('model_has_roles')->where('model_id', $user->id)->delete();
+            $oldRole = DB::table("model_has_roles")->where("model_id", $user->id)->delete();
 
-            $role = Role::where('name', $request->rol)->first();
+            $role = Role::where("name", $request->rol)->first();
             $user->assignRole($role);
         }
 
         $user->update($data);
 
-        return response()->json(["message"=>"success"]);
+        return response()->json([
+            "status"=>"success",
+            "message"=>"Registro creado correctamente."
+        ]);
     }
 
     /**
@@ -126,7 +136,10 @@ class UserController extends Controller
     public function destroy(Request $request)
     {
         $user->delete();
-        return response()->json(["message" => "success"]);
+        return response()->json([
+            "status"=>"success",
+            "message"=>"Registro creado correctamente."
+        ]);
     }
 
     /**
@@ -139,6 +152,10 @@ class UserController extends Controller
     {
         $user = User::find(auth()->user()->id);
 
-        return response()->json(['message'=> 'success', 'user'=> $user]);
+        return response()->json([
+            "status"=>"success",
+            "message"=>"Registro creado correctamente.",
+            "user"=> $user
+        ]);
     }
 }

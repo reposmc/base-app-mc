@@ -403,7 +403,7 @@ export default {
             );
           });
 
-        if (res.data.message == "success") {
+        if (res.data.status == "success") {
           this.redirectSessionFinished = lib.verifySessionFinished(
             res.status,
             200
@@ -421,7 +421,7 @@ export default {
           );
         });
 
-        if (res.data.message == "success") {
+        if (res.data.status == "success") {
           this.redirectSessionFinished = lib.verifySessionFinished(
             res.status,
             200

@@ -18,7 +18,11 @@ class DepartmentController extends Controller
         $departments = Department::all();
         $departments = Encrypt::encryptObject($departments, 'id');
 
-        return response()->json(['message' => 'success', 'departments'=>$departments]);
+        return response()->json([
+            "status"=>"success",
+            "message"=>"Registros obtenidos correctamente.",
+            'departments'=>$departments
+        ]);
     }
 
     /**
@@ -31,7 +35,10 @@ class DepartmentController extends Controller
     {
         Department::insert($request->all());
 
-        return response()->json(['message'=>'success']);
+        return response()->json([
+            "status"=>"success",
+            "message"=>"Registro creado correctamente."
+        ]);
     }
 
     /**
@@ -57,7 +64,10 @@ class DepartmentController extends Controller
         $data = Encrypt::decryptArray($request->all(), 'id');
 
         Department::where('id', $data)->update($data);
-        return response()->json(["message"=>"success"]);
+        return response()->json([
+            "status"=>"success",
+            "message"=>"Registro modificado correctamente."
+        ]);
     }
 
     /**
@@ -71,6 +81,9 @@ class DepartmentController extends Controller
         $id = Encrypt::decryptValue($id);
 
         Department::where('id', $id)->delete();
-        return response()->json(["message"=>"success"]);
+        return response()->json([
+            "status"=>"success",
+            "message"=>"Registro eliminado correctamente."
+        ]);
     }
 }
