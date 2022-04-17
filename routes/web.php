@@ -29,10 +29,10 @@ Auth::routes(['verify' => true, 'remember_me'=>false]);
 Route::group(['middleware'=> ['auth', 'verified', 'log', 'throttle:web']], function () {
     Route::group(['middleware'=>['has.role:Administrador']], function () {
         // Apis
-        Route::resource('/api/department', DepartmentController::class);
-        Route::resource('/api/municipality', MunicipalityController::class);
-        Route::resource('/api/user', UserController::class);
-        Route::resource('/api/role', RoleController::class);
+        Route::resource('/api/web/department', DepartmentController::class);
+        Route::resource('/api/web/municipality', MunicipalityController::class);
+        Route::resource('/api/web/user', UserController::class);
+        Route::resource('/api/web/role', RoleController::class);
 
         // Views
         Route::get('/departments', function () {

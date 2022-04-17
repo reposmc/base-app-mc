@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const departmentApi = axios.create({
-    baseURL: "/api/department",
+    baseURL: "/api/web/department",
 });
 
 export default departmentApi;
