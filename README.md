@@ -41,9 +41,13 @@ Copiar y pegar el archivo de configuración de ejemplo `.env.example` y renombra
 
         cp .env.example .env
 
-Generar la llave única
+Generar la llave única de la aplicación
 
         php artisan key:generate
+
+Generar la llave única para JWT
+
+        php artisan jwt:secret
 
 ### Crear la base de datos
 
