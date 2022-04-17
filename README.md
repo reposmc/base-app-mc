@@ -49,6 +49,10 @@ Generar la llave única para JWT
 
         php artisan jwt:secret
 
+(OPCIONAL) Para obtener la documentación completa dentro del IDE
+
+        php artisan ide-helper:generate       
+
 ### Crear la base de datos
 
 Crear la base de datos dentro del gestor utilizado, con el nombre indicado en el archivo de configuración `.env` en la variable de entorno `DB_DATABASE`
